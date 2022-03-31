@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "create-next-app": "^12.1.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.6.1"
   }
 }
