@@ -1,8 +1,16 @@
-import { TextField, Typography, Input, IconButton, Box } from "@mui/material";
+import {
+  TextField,
+  Typography,
+  Input,
+  IconButton,
+  Box,
+  Button,
+} from "@mui/material";
 import type { NextPage } from "next";
+import React from "react";
 import { Header } from "../components/organisms/Headers";
 import SearchIcon from "@mui/icons-material/Search";
-import { textAlign } from "@mui/material/node_modules/@mui/system";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +23,17 @@ const Home: NextPage = () => {
           <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
             <SearchIcon />
           </IconButton>
+        </Box>
+        <Box sx={{ my: 3 }}>
+          <Link href="/companies">
+            <Button
+              variant="outlined"
+              sx={{ borderRadius: "20px", px: 10 }}
+              size="large"
+            >
+              openmedicalで求人検索
+            </Button>
+          </Link>
         </Box>
       </Box>
     </>

@@ -6,8 +6,16 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../../next-seo.config";
 import createEmotionCache from "../createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
 
 const clientSideEmotionCache = createEmotionCache();
+const queryClient = new QueryClient();
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -26,7 +34,9 @@ const MyApp: React.FC<MyAppProps> = (props) => {
         </Head>
         <DefaultSeo {...SEO} />
         <RecoilRoot>
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
         </RecoilRoot>
       </CacheProvider>
     </>
